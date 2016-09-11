@@ -10,41 +10,38 @@ int main() {
 	int questionNumber = 3;
 	int dayRange[2] = {1, 1};
 	int timeRange[2] = {1, 1};
-	int blockSum;
 
 	int questionIndex, dayIndex, timeIndex;
-
 	int **infoMatrix;
 
 
 
 	fscanf(inputFlie, "%d %d", &numberOfTimeSection, &numberOfDaySection);
+	numberOfTimeSection++;
+	numberOfDaySection++;
 
-	infoMatrix = (int **)malloc(sizeof(int*) * numberOfTimeSection);
-	infoMatrix[0] = (int *)malloc(sizeof(int) * numberOfDaySection * numberOfTimeSection);
-	for (timeIndex = 0; timeIndex < numberOfTimeSection; timeIndex++) {
-		if(timeIndex != 0) {
+	infoMatrix = (int **)malloc(sizeof(int*) * (numberOfTimeSection));
+	infoMatrix[0] = (int *)malloc(sizeof(int) * (numberOfDaySection) * (numberOfTimeSection));
+	for (timeIndex = 1; timeIndex < numberOfTimeSection; timeIndex++) {
 	    	infoMatrix[timeIndex] = infoMatrix[timeIndex - 1] + numberOfDaySection;
-	    }
-	    for (dayIndex = 0; dayIndex < numberOfDaySection; dayIndex++) {
+	    for (dayIndex = 1; dayIndex < numberOfDaySection; dayIndex++) {
 			fscanf(inputFlie, "%d", &infoMatrix[timeIndex][dayIndex]);
+			infoMatrix[timeIndex][dayIndex] = infoMatrix[timeIndex][dayIndex]
+												+ infoMatrix[timeIndex - 1][dayIndex]
+												+ infoMatrix[timeIndex][dayIndex - 1]
+												- infoMatrix[timeIndex - 1][dayIndex - 1];
 		}
 	}
 
 	fscanf(inputFlie, "%d", &questionNumber);
 
 	for (questionIndex = 0; questionIndex < questionNumber; questionIndex++) {
-		blockSum = 0;
 		fscanf(inputFlie, "%d %d %d %d", &dayRange[0], &dayRange[1], &timeRange[0], &timeRange[1]);
-
-		for (dayIndex = dayRange[0] - 1; dayIndex < dayRange[1]; dayIndex++) {
-			for (timeIndex = timeRange[0] - 1; timeIndex < timeRange[1]; timeIndex++) {
-				blockSum += infoMatrix[timeIndex][dayIndex];
-			}
-		}
-		fprintf(outputFile, "%d\n", blockSum);
+		fprintf(outputFile, "%d\n", infoMatrix[timeRange[1]][dayRange[1]]
+										- infoMatrix[timeRange[1]][dayRange[0] - 1]
+										- infoMatrix[timeRange[0] - 1][dayRange[1]]
+										+ infoMatrix[timeRange[0] - 1][dayRange[0] - 1]);
 	}
-
 
 	free(infoMatrix[0]);
 	free(infoMatrix);
