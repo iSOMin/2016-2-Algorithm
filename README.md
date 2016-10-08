@@ -13,5 +13,5 @@
   if there are three stars in a group, the longest distance among them is the bhi.<br>
   This program finds the shortest bhi from all the stars from the bhi.inp and the shortest bhi is saved in bhi.out.
 <br>
-##assignment04 - <em>eleccar<\em>
+##assignment04 - <em>eleccar</em>
   
