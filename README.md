@@ -23,5 +23,6 @@
 <br>
 ##assignment06 - <em>laundry</em>
   getting the distances of nodes and calculate the longest time for visiting all of the nodes.<br>
-  But it should be shorter than limited time T.
+  But it should be shorter than limited time T.<br>
   The result path is printed in laundry.inp.
+<br>
