@@ -14,4 +14,14 @@
   This program finds the shortest bhi from all the stars from the bhi.inp and the shortest bhi is saved in bhi.out.
 <br>
 ##assignment04 - <em>eleccar</em>
-  
+  getting distances of nodes and calculate the longest distance from the shortes paths.<br>
+  The result distance and the path is printed in eleccar.out.
+<br>
+##assignment05 - <em>board</em>
+  getting the largest sum of three cards set whose orders cannot be changed but the location can be changed.<br>
+  The result score is printed in board.out.
+<br>
+##assignment06 - <em>laundry</em>
+  getting the distances of nodes and calculate the longest time for visiting all of the nodes.<br>
+  But it should be shorter than limited time T.
+  The result path is printed in laundry.inp.
