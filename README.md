@@ -26,3 +26,10 @@
   But it should be shorter than limited time T.<br>
   The result path is printed in laundry.inp.
 <br>
+##assignment08 - <em>ngs</em>
+  get ngs string data and sort them using radix sort. <br>
+  The result shows the most appeared ngs pattern and the count number of it.
+  <br>
+##assignment09 - <em>candle</em>
+  get graph nodes and distances as edge length.<br>
+  The result shows meeting point that spends shortest time when 3 people come from selected 3 different nodes.
